@@ -74,7 +74,13 @@ const HeroSection = () => {
             </motion.p>
 
             <motion.div className="flex flex-wrap gap-4 mb-10" variants={itemVariants}>
-              <Button size="lg" onClick={() => window.open('/resume.pdf', '_blank')}>
+              <Button 
+                size="lg" 
+                onClick={() => {
+                  const resumeUrl = process.env.PUBLIC_URL + '/resume.pdf';
+                  window.open(resumeUrl, '_blank', 'noopener,noreferrer');
+                }}
+              >
                 <FaFileDownload className="mr-2" /> Download Resume
               </Button>
               <Button variant="outline" size="lg" onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
